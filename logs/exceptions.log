@@ -1,0 +1,163 @@
+[2026-01-03 22:56:54] Function strftime() is deprecated in /opt/homebrew/var/www/shalom_factura/dashboard.php:149
+#0 /opt/homebrew/var/www/shalom_factura/dashboard.php(149): {closure}(8192, 'Function strfti...', '/opt/homebrew/v...', 149)
+#1 {main}[2026-01-03 22:58:55] Undefined array key 0 in /opt/homebrew/var/www/shalom_factura/dashboard.php:179
+#0 /opt/homebrew/var/www/shalom_factura/dashboard.php(179): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 179)
+#1 {main}[2026-01-03 22:58:57] Undefined array key 0 in /opt/homebrew/var/www/shalom_factura/dashboard.php:179
+#0 /opt/homebrew/var/www/shalom_factura/dashboard.php(179): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 179)
+#1 {main}[2026-01-03 23:00:35] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-03 23:11:38] Error de conexión a la base de datos in /opt/homebrew/var/www/shalom_factura/core/Database.php:67
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(27): Shalom\Core\Database->connect()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(36): Shalom\Core\Database->__construct()
+#2 /opt/homebrew/var/www/shalom_factura/core/Auth.php(19): Shalom\Core\Database::getInstance()
+#3 /opt/homebrew/var/www/shalom_factura/core/Auth.php(27): Shalom\Core\Auth->__construct()
+#4 /opt/homebrew/var/www/shalom_factura/bootstrap.php(76): Shalom\Core\Auth::getInstance()
+#5 /opt/homebrew/var/www/shalom_factura/bootstrap.php(193): auth()
+#6 /opt/homebrew/var/www/shalom_factura/facturas/crear.php(6): require_once('/opt/homebrew/v...')
+#7 {main}[2026-01-03 23:15:39] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-03 23:19:17] No se pudo leer el certificado. Verifique la contraseña. in /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php:50
+#0 /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php(34): Shalom\Modules\Sri\FirmaElectronica->cargarCertificado()
+#1 /opt/homebrew/var/www/shalom_factura/empresa/firma.php(55): Shalom\Modules\Sri\FirmaElectronica->__construct('/private/var/tm...', 'Italiavisitar20...')
+#2 {main}[2026-01-04 00:59:23] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-04 01:03:07] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-04 01:03:40] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-04 01:03:46] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php:71
+#0 [internal function]: {closure}(8192, 'number_format()...', '/opt/homebrew/v...', 71)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(71): number_format(NULL)
+#2 {main}[2026-01-04 21:02:22] Error de conexión a la base de datos in /opt/homebrew/var/www/shalom_factura/core/Database.php:67
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(27): Shalom\Core\Database->connect()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(36): Shalom\Core\Database->__construct()
+#2 /opt/homebrew/var/www/shalom_factura/core/Auth.php(19): Shalom\Core\Database::getInstance()
+#3 /opt/homebrew/var/www/shalom_factura/core/Auth.php(27): Shalom\Core\Auth->__construct()
+#4 /opt/homebrew/var/www/shalom_factura/bootstrap.php(76): Shalom\Core\Auth::getInstance()
+#5 /opt/homebrew/var/www/shalom_factura/bootstrap.php(193): auth()
+#6 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(6): require_once('/opt/homebrew/v...')
+#7 {main}[2026-01-04 21:02:23] Error de conexión a la base de datos in /opt/homebrew/var/www/shalom_factura/core/Database.php:67
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(27): Shalom\Core\Database->connect()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(36): Shalom\Core\Database->__construct()
+#2 /opt/homebrew/var/www/shalom_factura/core/Auth.php(19): Shalom\Core\Database::getInstance()
+#3 /opt/homebrew/var/www/shalom_factura/core/Auth.php(27): Shalom\Core\Auth->__construct()
+#4 /opt/homebrew/var/www/shalom_factura/bootstrap.php(76): Shalom\Core\Auth::getInstance()
+#5 /opt/homebrew/var/www/shalom_factura/bootstrap.php(193): auth()
+#6 /opt/homebrew/var/www/shalom_factura/cotizaciones/index.php(6): require_once('/opt/homebrew/v...')
+#7 {main}[2026-01-04 21:02:45] Undefined array key "descuento" in /opt/homebrew/var/www/shalom_factura/cotizaciones/ver.php:242
+#0 /opt/homebrew/var/www/shalom_factura/cotizaciones/ver.php(242): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 242)
+#1 {main}[2026-01-04 21:06:03] Undefined array key "descuento" in /opt/homebrew/var/www/shalom_factura/cotizaciones/pdf.php:365
+#0 /opt/homebrew/var/www/shalom_factura/cotizaciones/pdf.php(365): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 365)
+#1 /opt/homebrew/var/www/shalom_factura/cotizaciones/pdf.php(34): generarHtmlCotizacion(Array, Array, Array)
+#2 {main}[2026-01-04 22:20:23] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f.moneda_id' in 'on clause' in /opt/homebrew/var/www/shalom_factura/core/Database.php:84
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(84): PDO->prepare('\n            SE...')
+#1 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(111): Shalom\Core\Database->query('\n            SE...')
+#2 /opt/homebrew/var/www/shalom_factura/facturas/ver.php(27): Shalom\Modules\Facturas\Factura->getById(1)
+#3 {main}[2026-01-04 22:20:40] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f.moneda_id' in 'on clause' in /opt/homebrew/var/www/shalom_factura/core/Database.php:84
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(84): PDO->prepare('\n            SE...')
+#1 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(111): Shalom\Core\Database->query('\n            SE...')
+#2 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(563): Shalom\Modules\Facturas\Factura->getById(1)
+#3 /opt/homebrew/var/www/shalom_factura/api/facturas/emitir.php(31): Shalom\Modules\Facturas\Factura->emitir(1)
+#4 {main}[2026-01-05 08:39:04] SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1 in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(233): Shalom\Core\Database->execute()
+#2 /opt/homebrew/var/www/shalom_factura/core/Auth.php(415): Shalom\Core\Database->insert('audit_log', Array)
+#3 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(578): Shalom\Core\Auth->logActivity('emitir', 'facturas', 2)
+#4 /opt/homebrew/var/www/shalom_factura/api/facturas/emitir.php(31): Shalom\Modules\Facturas\Factura->emitir(2)
+#5 {main}[2026-01-05 09:25:25] Undefined array key "valor" in /opt/homebrew/var/www/shalom_factura/facturas/ver.php:309
+#0 /opt/homebrew/var/www/shalom_factura/facturas/ver.php(309): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 309)
+#1 {main}[2026-01-05 09:27:54] Undefined array key "valor" in /opt/homebrew/var/www/shalom_factura/facturas/ver.php:309
+#0 /opt/homebrew/var/www/shalom_factura/facturas/ver.php(309): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 309)
+#1 {main}[2026-01-05 09:32:01] require_once(/opt/homebrew/var/www/shalom_factura/vendor/autoload.php): Failed to open stream: No such file or directory in /opt/homebrew/var/www/shalom_factura/facturas/pdf.php:7
+#0 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): {closure}(2, 'require_once(/o...', '/opt/homebrew/v...', 7)
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): require_once()
+#2 {main}[2026-01-05 09:32:29] require_once(/opt/homebrew/var/www/shalom_factura/vendor/autoload.php): Failed to open stream: No such file or directory in /opt/homebrew/var/www/shalom_factura/facturas/pdf.php:7
+#0 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): {closure}(2, 'require_once(/o...', '/opt/homebrew/v...', 7)
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): require_once()
+#2 {main}[2026-01-05 09:33:49] require_once(/opt/homebrew/var/www/shalom_factura/vendor/autoload.php): Failed to open stream: No such file or directory in /opt/homebrew/var/www/shalom_factura/facturas/pdf.php:7
+#0 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): {closure}(2, 'require_once(/o...', '/opt/homebrew/v...', 7)
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(7): require_once()
+#2 {main}[2026-01-05 09:49:44] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shalom_factura.factura_formas_pago' doesn't exist in /opt/homebrew/var/www/shalom_factura/core/Database.php:84
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(84): PDO->prepare('\n    SELECT ffp...')
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(72): Shalom\Core\Database->query('\n    SELECT ffp...')
+#2 {main}[2026-01-05 09:58:01] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shalom_factura.factura_formas_pago' doesn't exist in /opt/homebrew/var/www/shalom_factura/core/Database.php:84
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(84): PDO->prepare('\n    SELECT ffp...')
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(89): Shalom\Core\Database->query('\n    SELECT ffp...')
+#2 {main}[2026-01-05 09:58:04] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shalom_factura.factura_formas_pago' doesn't exist in /opt/homebrew/var/www/shalom_factura/core/Database.php:84
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(84): PDO->prepare('\n    SELECT ffp...')
+#1 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(89): Shalom\Core\Database->query('\n    SELECT ffp...')
+#2 {main}[2026-01-05 10:06:36] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(30): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:29] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:40] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:41] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:41] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:41] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:58] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 10:08:59] SQLSTATE[HY093]: Invalid parameter number in /opt/homebrew/var/www/shalom_factura/core/Database.php:116
+#0 /opt/homebrew/var/www/shalom_factura/core/Database.php(116): PDOStatement->execute()
+#1 /opt/homebrew/var/www/shalom_factura/core/Database.php(147): Shalom\Core\Database->execute(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(44): Shalom\Core\Database->fetch()
+#3 {main}[2026-01-05 12:19:09] No se pudo leer el certificado. Verifique la contraseña. in /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php:50
+#0 /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php(34): Shalom\Modules\Sri\FirmaElectronica->cargarCertificado()
+#1 /opt/homebrew/var/www/shalom_factura/empresa/firma.php(55): Shalom\Modules\Sri\FirmaElectronica->__construct('/private/var/tm...', 'Italiavisitar20...')
+#2 {main}[2026-01-05 12:21:07] No se pudo leer el certificado. Verifique la contraseña. in /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php:50
+#0 /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php(34): Shalom\Modules\Sri\FirmaElectronica->cargarCertificado()
+#1 /opt/homebrew/var/www/shalom_factura/empresa/firma.php(55): Shalom\Modules\Sri\FirmaElectronica->__construct('/private/var/tm...', 'Italiavisitar20...')
+#2 {main}[2026-01-05 12:49:59] Call to undefined function has_flash() in /opt/homebrew/var/www/shalom_factura/empresa/firma.php:185
+#0 {main}[2026-01-05 14:11:37] Undefined array key "codigo" in /opt/homebrew/var/www/shalom_factura/facturas/pdf.php:93
+#0 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(93): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 93)
+#1 [internal function]: {closure}(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(91): array_map(Object(Closure), Array)
+#3 {main}[2026-01-05 14:20:13] Call to undefined method Shalom\Core\Helpers::generateUuid() in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:274
+#0 /opt/homebrew/var/www/shalom_factura/api/facturas/crear.php(59): Shalom\Modules\Facturas\Factura->create(Array)
+#1 {main}[2026-01-05 14:20:20] Call to undefined method Shalom\Core\Helpers::generateUuid() in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:274
+#0 /opt/homebrew/var/www/shalom_factura/api/facturas/crear.php(59): Shalom\Modules\Facturas\Factura->create(Array)
+#1 {main}[2026-01-05 14:24:39] Call to undefined method Shalom\Core\Helpers::generateUuid() in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:274
+#0 /opt/homebrew/var/www/shalom_factura/api/facturas/crear.php(59): Shalom\Modules\Facturas\Factura->create(Array)
+#1 {main}[2026-01-05 14:28:54] Call to undefined method Shalom\Core\Helpers::generateUuid() in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:274
+#0 /opt/homebrew/var/www/shalom_factura/api/facturas/crear.php(59): Shalom\Modules\Facturas\Factura->create(Array)
+#1 {main}[2026-01-05 14:47:32] Undefined array key "codigo" in /opt/homebrew/var/www/shalom_factura/facturas/pdf.php:93
+#0 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(93): {closure}(2, 'Undefined array...', '/opt/homebrew/v...', 93)
+#1 [internal function]: {closure}(Array)
+#2 /opt/homebrew/var/www/shalom_factura/facturas/pdf.php(91): array_map(Object(Closure), Array)
+#3 {main}[2026-01-05 14:48:47] Undefined constant "Shalom\Modules\Facturas\STORAGE_PATH" in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:432
+#0 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(349): Shalom\Modules\Facturas\Factura->guardarXml(21, '<?xml version="...', 'generado')
+#1 /opt/homebrew/var/www/shalom_factura/api/facturas/emitir.php(62): Shalom\Modules\Facturas\Factura->emitir(21)
+#2 {main}[2026-01-05 14:48:55] Undefined constant "Shalom\Modules\Facturas\STORAGE_PATH" in /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php:432
+#0 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(349): Shalom\Modules\Facturas\Factura->guardarXml(21, '<?xml version="...', 'generado')
+#1 /opt/homebrew/var/www/shalom_factura/api/facturas/emitir.php(62): Shalom\Modules\Facturas\Factura->emitir(21)
+#2 {main}[2026-01-06 12:03:55] Call to undefined method Shalom\Modules\Sri\FirmaElectronica::getDebugDir() in /opt/homebrew/var/www/shalom_factura/modules/Sri/FirmaElectronica.php:141
+#0 /opt/homebrew/var/www/shalom_factura/modules/Facturas/Factura.php(309): Shalom\Modules\Sri\FirmaElectronica->firmarXml('<?xml version="...')
+#1 /opt/homebrew/var/www/shalom_factura/api/facturas/emitir.php(62): Shalom\Modules\Facturas\Factura->emitir(36)
+#2 {main}[2026-01-06 20:55:59] Call to undefined function ob_get_show() in /opt/homebrew/var/www/shalom_factura/facturas/crear.php:881
+#0 {main}[2026-01-06 20:56:13] Call to undefined function ob_get_show() in /opt/homebrew/var/www/shalom_factura/facturas/crear.php:881
+#0 {main}[2026-01-06 20:56:14] Call to undefined function ob_get_show() in /opt/homebrew/var/www/shalom_factura/facturas/crear.php:881
+#0 {main}[2026-01-06 20:56:38] Call to undefined function ob_get_show() in /opt/homebrew/var/www/shalom_factura/facturas/crear.php:881
+#0 {main}[2026-01-06 20:56:43] Call to undefined function ob_get_show() in /opt/homebrew/var/www/shalom_factura/facturas/crear.php:881
+#0 {main}

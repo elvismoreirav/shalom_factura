@@ -1,0 +1,126 @@
+[2026-01-03 23:11:38] Database Error: Connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Query: 
+Params: []
+[2026-01-03 23:14:34] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-03 23:14:47] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-03 23:14:55] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-03 23:15:02] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-04 01:00:57] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-04 01:01:49] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'periodo_recurrencia' at row 1
+Query: INSERT INTO servicios (uuid, empresa_id, categoria_id, codigo, codigo_auxiliar, nombre, descripcion, precio_unitario, costo, impuesto_id, tipo, unidad_medida, es_recurrente, periodo_recurrencia, activo, created_by) VALUES (:uuid, :empresa_id, :categoria_id, :codigo, :codigo_auxiliar, :nombre, :descripcion, :precio_unitario, :costo, :impuesto_id, :tipo, :unidad_medida, :es_recurrente, :periodo_recurrencia, :activo, :created_by)
+Params: []
+[2026-01-04 21:02:22] Database Error: Connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Query: 
+Params: []
+[2026-01-04 21:02:23] Database Error: Connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Query: 
+Params: []
+[2026-01-04 21:50:12] Database Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'fecha_vencimiento' at row 1
+Query: INSERT INTO facturas (uuid, empresa_id, establecimiento_id, punto_emision_id, cliente_id, tipo_comprobante_id, cotizacion_id, secuencial, clave_acceso, numero_autorizacion, fecha_emision, fecha_vencimiento, subtotal_sin_impuestos, total_descuento, subtotal_iva, subtotal_iva_0, total_iva, total_ice, propina, total, estado, estado_sri, estado_pago, created_by) VALUES (:uuid, :empresa_id, :establecimiento_id, :punto_emision_id, :cliente_id, :tipo_comprobante_id, :cotizacion_id, :secuencial, :clave_acceso, :numero_autorizacion, :fecha_emision, :fecha_vencimiento, :subtotal_sin_impuestos, :total_descuento, :subtotal_iva, :subtotal_iva_0, :total_iva, :total_ice, :propina, :total, :estado, :estado_sri, :estado_pago, :created_by)
+Params: []
+[2026-01-05 08:28:25] Database Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'fecha_vencimiento' at row 1
+Query: INSERT INTO facturas (uuid, empresa_id, establecimiento_id, punto_emision_id, cliente_id, tipo_comprobante_id, cotizacion_id, secuencial, clave_acceso, numero_autorizacion, fecha_emision, fecha_vencimiento, subtotal_sin_impuestos, total_descuento, subtotal_iva, subtotal_iva_0, total_iva, total_ice, propina, total, estado, estado_sri, estado_pago, created_by) VALUES (:uuid, :empresa_id, :establecimiento_id, :punto_emision_id, :cliente_id, :tipo_comprobante_id, :cotizacion_id, :secuencial, :clave_acceso, :numero_autorizacion, :fecha_emision, :fecha_vencimiento, :subtotal_sin_impuestos, :total_descuento, :subtotal_iva, :subtotal_iva_0, :total_iva, :total_ice, :propina, :total, :estado, :estado_sri, :estado_pago, :created_by)
+Params: []
+[2026-01-05 08:39:04] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 09:31:44] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 09:33:05] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 10:06:36] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:29] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:40] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:41] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:41] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:41] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:58] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 10:08:59] Database Error: SQLSTATE[HY093]: Invalid parameter number
+Query: SELECT * FROM establecimientos WHERE id = :id
+Params: []
+[2026-01-05 11:08:53] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 11:15:52] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 11:59:07] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 13:01:42] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 14:37:22] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'precio_total_sin_impuesto' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, descripcion, cantidad, precio_unitario, descuento, subtotal, impuesto_valor, total, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :descripcion, :cantidad, :precio_unitario, :descuento, :subtotal, :impuesto_valor, :total, :orden)
+Params: []
+[2026-01-05 14:39:49] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'precio_total_sin_impuesto' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, descripcion, cantidad, precio_unitario, descuento, subtotal, impuesto_valor, total, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :descripcion, :cantidad, :precio_unitario, :descuento, :subtotal, :impuesto_valor, :total, :orden)
+Params: []
+[2026-01-05 14:39:59] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'precio_total_sin_impuesto' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, descripcion, cantidad, precio_unitario, descuento, subtotal, impuesto_valor, total, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :descripcion, :cantidad, :precio_unitario, :descuento, :subtotal, :impuesto_valor, :total, :orden)
+Params: []
+[2026-01-05 14:41:48] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'codigo' doesn't have a default value
+Query: INSERT INTO factura_impuestos (factura_id, impuesto_id, base_imponible, valor) VALUES (:factura_id, :impuesto_id, :base_imponible, :valor)
+Params: []
+[2026-01-05 14:42:16] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'codigo' doesn't have a default value
+Query: INSERT INTO factura_impuestos (factura_id, impuesto_id, base_imponible, valor) VALUES (:factura_id, :impuesto_id, :base_imponible, :valor)
+Params: []
+[2026-01-05 14:54:37] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-05 18:52:15] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'subtotal' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, codigo_auxiliar, descripcion, cantidad, precio_unitario, descuento, precio_total_sin_impuesto, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :codigo_auxiliar, :descripcion, :cantidad, :precio_unitario, :descuento, :precio_total_sin_impuesto, :orden)
+Params: []
+[2026-01-05 18:52:21] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'subtotal' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, codigo_auxiliar, descripcion, cantidad, precio_unitario, descuento, precio_total_sin_impuesto, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :codigo_auxiliar, :descripcion, :cantidad, :precio_unitario, :descuento, :precio_total_sin_impuesto, :orden)
+Params: []
+[2026-01-05 18:52:27] Database Error: SQLSTATE[HY000]: General error: 1364 Field 'subtotal' doesn't have a default value
+Query: INSERT INTO factura_detalles (factura_id, servicio_id, codigo_principal, codigo_auxiliar, descripcion, cantidad, precio_unitario, descuento, precio_total_sin_impuesto, orden) VALUES (:factura_id, :servicio_id, :codigo_principal, :codigo_auxiliar, :descripcion, :cantidad, :precio_unitario, :descuento, :precio_total_sin_impuesto, :orden)
+Params: []
+[2026-01-06 12:45:59] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 12:49:08] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 19:37:26] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 19:49:57] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 20:44:47] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 21:17:55] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []
+[2026-01-06 22:23:37] Database Error: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'accion' at row 1
+Query: INSERT INTO audit_log (empresa_id, usuario_id, tabla, registro_id, accion, datos_anteriores, datos_nuevos, ip_address, user_agent, url) VALUES (:empresa_id, :usuario_id, :tabla, :registro_id, :accion, :datos_anteriores, :datos_nuevos, :ip_address, :user_agent, :url)
+Params: []

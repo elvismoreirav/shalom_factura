@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura id="comprobante" version="2.1.0">
+  <infoTributaria>
+    <ambiente>1</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>MOREIRA VILLAMAR ELVIS EDUARDO</razonSocial>
+    <ruc>1312881186001</ruc>
+    <claveAcceso>0501202601131288118600110010010000000119060783014</claveAcceso>
+    <codDoc>01</codDoc>
+    <estab>001</estab>
+    <ptoEmi>001</ptoEmi>
+    <secuencial>000000011</secuencial>
+    <dirMatriz>PORTOVIEJO</dirMatriz>
+  </infoTributaria>
+  <infoFactura>
+    <fechaEmision>05/01/2026</fechaEmision>
+    <dirEstablecimiento>PORTOVIEJO</dirEstablecimiento>
+    <obligadoContabilidad>NO</obligadoContabilidad>
+    <tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+    <razonSocialComprador>ELVIS MOREIRA VILLAMAR</razonSocialComprador>
+    <identificacionComprador>1312881186</identificacionComprador>
+    <direccionComprador>PORTOVIEJO</direccionComprador>
+    <totalSinImpuestos>100.00</totalSinImpuestos>
+    <totalDescuento>0.00</totalDescuento>
+    <totalConImpuestos>
+      <totalImpuesto>
+        <codigo>2</codigo>
+        <codigoPorcentaje>4</codigoPorcentaje>
+        <baseImponible>100.00</baseImponible>
+        <valor>15.00</valor>
+      </totalImpuesto>
+    </totalConImpuestos>
+    <propina>0.00</propina>
+    <importeTotal>115.00</importeTotal>
+    <moneda>DOLAR</moneda>
+    <pagos>
+      <pago>
+        <formaPago>01</formaPago>
+        <total>115.00</total>
+      </pago>
+    </pagos>
+  </infoFactura>
+  <detalles>
+    <detalle>
+      <codigoPrincipal>00222</codigoPrincipal>
+      <codigoAuxiliar>00222</codigoAuxiliar>
+      <descripcion>alquiler de pcs</descripcion>
+      <cantidad>1.000000</cantidad>
+      <precioUnitario>100.000000</precioUnitario>
+      <descuento>0.00</descuento>
+      <precioTotalSinImpuesto>100.00</precioTotalSinImpuesto>
+      <impuestos>
+        <impuesto>
+          <codigo>2</codigo>
+          <codigoPorcentaje>4</codigoPorcentaje>
+          <tarifa>15.00</tarifa>
+          <baseImponible>100.00</baseImponible>
+          <valor>15.00</valor>
+        </impuesto>
+      </impuestos>
+    </detalle>
+  </detalles>
+  <infoAdicional>
+    <campoAdicional nombre="Email">emoreira1192@outlook.com</campoAdicional>
+    <campoAdicional nombre="Dirección">PORTOVIEJO</campoAdicional>
+    <campoAdicional nombre="Teléfono">0985714264</campoAdicional>
+  </infoAdicional>
+</factura>
