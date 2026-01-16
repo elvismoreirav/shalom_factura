@@ -249,6 +249,37 @@ $this->addElement($iEl, 'baseImponible', $this->formatNumber($imp['base_imponibl
         }
         return $detallesEl;
     }
+
+    private function crearDetallesNotaCredito(array $detalles): DOMElement
+    {
+        $detallesEl = $this->dom->createElement('detalles');
+        foreach ($detalles as $i => $det) {
+            $dEl = $this->dom->createElement('detalle');
+            $this->addElement($dEl, 'codigoInterno', $det['codigo_principal'] ?? 'PROD'.($i+1));
+            if (!empty($det['codigo_auxiliar'])) {
+                $this->addElement($dEl, 'codigoAdicional', $det['codigo_auxiliar']);
+            }
+            $this->addElement($dEl, 'descripcion', $this->limpiarTexto($det['descripcion']));
+            $this->addElement($dEl, 'cantidad', $this->formatNumber($det['cantidad'], 2));
+            $this->addElement($dEl, 'precioUnitario', $this->formatNumber($det['precio_unitario'], 2));
+            $this->addElement($dEl, 'descuento', $this->formatSmart($det['descuento']));
+            $this->addElement($dEl, 'precioTotalSinImpuesto', $this->formatNumber($det['precio_total_sin_impuesto']));
+
+            $impsEl = $this->dom->createElement('impuestos');
+            foreach ($det['impuestos'] as $imp) {
+                $iEl = $this->dom->createElement('impuesto');
+                $this->addElement($iEl, 'codigo', $imp['codigo']);
+                $this->addElement($iEl, 'codigoPorcentaje', $imp['codigo_porcentaje']);
+                $this->addElement($iEl, 'tarifa', $this->formatNumber($imp['tarifa'], 2));
+                $this->addElement($iEl, 'baseImponible', $this->formatNumber($imp['base_imponible']));
+                $this->addElement($iEl, 'valor', $this->formatNumber($imp['valor']));
+                $impsEl->appendChild($iEl);
+            }
+            $dEl->appendChild($impsEl);
+            $detallesEl->appendChild($dEl);
+        }
+        return $detallesEl;
+    }
     
     private function crearInfoAdicional(array $campos): DOMElement {
         $infoAdicional = $this->dom->createElement('infoAdicional');
@@ -294,7 +325,7 @@ $this->addElement($iEl, 'baseImponible', $this->formatNumber($imp['base_imponibl
 
         $root->appendChild($this->crearInfoTributaria($notaCredito, 'NOTA_CREDITO'));
         $root->appendChild($this->crearInfoNotaCredito($notaCredito));
-        $root->appendChild($this->crearDetalles($notaCredito['detalles']));
+        $root->appendChild($this->crearDetallesNotaCredito($notaCredito['detalles']));
 
         if (!empty($notaCredito['info_adicional'])) {
             $root->appendChild($this->crearInfoAdicional($notaCredito['info_adicional']));
