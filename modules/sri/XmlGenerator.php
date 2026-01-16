@@ -149,13 +149,13 @@ class XmlGenerator
 
         $this->addElement($info, 'fechaEmision', date('d/m/Y', strtotime($notaCredito['fecha_emision'] ?? 'now')));
         $this->addElement($info, 'dirEstablecimiento', $this->limpiarTexto($this->establecimiento['direccion'] ?? 'S/N'));
+        $this->addElement($info, 'tipoIdentificacionComprador', $notaCredito['cliente']['tipo_identificacion_codigo'] ?? '05');
+        $this->addElement($info, 'razonSocialComprador', $this->limpiarTexto($notaCredito['cliente']['razon_social'] ?? 'CONSUMIDOR FINAL'));
+        $this->addElement($info, 'identificacionComprador', $notaCredito['cliente']['identificacion'] ?? '9999999999999');
         if (!empty($this->empresa['contribuyente_especial'])) {
             $this->addElement($info, 'contribuyenteEspecial', $this->empresa['contribuyente_especial']);
         }
         $this->addElement($info, 'obligadoContabilidad', $this->empresa['obligado_contabilidad'] ?? 'NO');
-        $this->addElement($info, 'tipoIdentificacionComprador', $notaCredito['cliente']['tipo_identificacion_codigo'] ?? '05');
-        $this->addElement($info, 'razonSocialComprador', $this->limpiarTexto($notaCredito['cliente']['razon_social'] ?? 'CONSUMIDOR FINAL'));
-        $this->addElement($info, 'identificacionComprador', $notaCredito['cliente']['identificacion'] ?? '9999999999999');
 
         $this->addElement($info, 'codDocModificado', $notaCredito['documento_modificado']['codigo'] ?? '01');
         $this->addElement($info, 'numDocModificado', $notaCredito['documento_modificado']['numero'] ?? '');
