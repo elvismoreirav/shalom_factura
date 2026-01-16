@@ -576,6 +576,119 @@ CREATE TABLE factura_info_adicional (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- =====================================================
+-- TABLAS DE NOTAS DE CRÉDITO
+-- =====================================================
+
+CREATE TABLE notas_credito (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    uuid CHAR(36) NOT NULL UNIQUE,
+    empresa_id INT UNSIGNED NOT NULL,
+    establecimiento_id INT UNSIGNED NOT NULL,
+    punto_emision_id INT UNSIGNED NOT NULL,
+    factura_id INT UNSIGNED NOT NULL,
+    cliente_id INT UNSIGNED NOT NULL,
+    tipo_comprobante_id INT UNSIGNED NOT NULL,
+    secuencial INT UNSIGNED NOT NULL,
+    clave_acceso VARCHAR(49),
+    numero_autorizacion VARCHAR(49),
+    fecha_autorizacion DATETIME,
+    fecha_emision DATE NOT NULL,
+    subtotal_sin_impuestos DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+    total_descuento DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+    subtotal_iva DECIMAL(14,2) DEFAULT 0.00,
+    subtotal_iva_0 DECIMAL(14,2) DEFAULT 0.00,
+    total_iva DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+    total_ice DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+    total DECIMAL(14,2) NOT NULL DEFAULT 0.00,
+    motivo VARCHAR(300) NOT NULL,
+    xml_path VARCHAR(500),
+    xml_firmado_path VARCHAR(500),
+    estado_sri ENUM('pendiente', 'enviado', 'recibida', 'autorizada', 'rechazada', 'no_autorizada', 'devuelta') DEFAULT 'pendiente',
+    mensaje_sri TEXT,
+    intentos_envio INT DEFAULT 0,
+    estado ENUM('borrador', 'emitida', 'anulada') DEFAULT 'borrador',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL,
+    created_by INT UNSIGNED,
+    anulado_by INT UNSIGNED,
+    anulado_at TIMESTAMP NULL,
+    motivo_anulacion TEXT,
+    FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE,
+    FOREIGN KEY (establecimiento_id) REFERENCES establecimientos(id),
+    FOREIGN KEY (punto_emision_id) REFERENCES puntos_emision(id),
+    FOREIGN KEY (factura_id) REFERENCES facturas(id),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (tipo_comprobante_id) REFERENCES cat_tipos_comprobante(id),
+    FOREIGN KEY (created_by) REFERENCES usuarios(id) ON DELETE SET NULL,
+    FOREIGN KEY (anulado_by) REFERENCES usuarios(id) ON DELETE SET NULL,
+    UNIQUE KEY uk_empresa_tipo_secuencial (empresa_id, establecimiento_id, punto_emision_id, tipo_comprobante_id, secuencial),
+    INDEX idx_empresa (empresa_id),
+    INDEX idx_cliente (cliente_id),
+    INDEX idx_fecha (fecha_emision),
+    INDEX idx_estado (estado),
+    INDEX idx_estado_sri (estado_sri),
+    INDEX idx_clave_acceso (clave_acceso)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE nota_credito_detalles (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nota_credito_id INT UNSIGNED NOT NULL,
+    servicio_id INT UNSIGNED NULL,
+    codigo_principal VARCHAR(25) NOT NULL,
+    codigo_auxiliar VARCHAR(25),
+    descripcion VARCHAR(300) NOT NULL,
+    cantidad DECIMAL(14,6) NOT NULL,
+    precio_unitario DECIMAL(14,6) NOT NULL,
+    descuento DECIMAL(14,2) DEFAULT 0.00,
+    precio_total_sin_impuesto DECIMAL(14,2) NOT NULL,
+    orden INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (nota_credito_id) REFERENCES notas_credito(id) ON DELETE CASCADE,
+    FOREIGN KEY (servicio_id) REFERENCES servicios(id) ON DELETE SET NULL,
+    INDEX idx_nota (nota_credito_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE nota_credito_detalle_impuestos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nota_credito_detalle_id INT UNSIGNED NOT NULL,
+    impuesto_id INT UNSIGNED NOT NULL,
+    codigo VARCHAR(4) NOT NULL,
+    codigo_porcentaje VARCHAR(4) NOT NULL,
+    tarifa DECIMAL(5,2) NOT NULL,
+    base_imponible DECIMAL(14,2) NOT NULL,
+    valor DECIMAL(14,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (nota_credito_detalle_id) REFERENCES nota_credito_detalles(id) ON DELETE CASCADE,
+    FOREIGN KEY (impuesto_id) REFERENCES cat_impuestos(id),
+    INDEX idx_detalle (nota_credito_detalle_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE nota_credito_impuestos (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nota_credito_id INT UNSIGNED NOT NULL,
+    impuesto_id INT UNSIGNED NOT NULL,
+    codigo VARCHAR(4) NOT NULL,
+    codigo_porcentaje VARCHAR(4) NOT NULL,
+    base_imponible DECIMAL(14,2) NOT NULL,
+    valor DECIMAL(14,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (nota_credito_id) REFERENCES notas_credito(id) ON DELETE CASCADE,
+    FOREIGN KEY (impuesto_id) REFERENCES cat_impuestos(id),
+    INDEX idx_nota (nota_credito_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE nota_credito_info_adicional (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nota_credito_id INT UNSIGNED NOT NULL,
+    nombre VARCHAR(300) NOT NULL,
+    valor VARCHAR(300) NOT NULL,
+    orden INT DEFAULT 0,
+    FOREIGN KEY (nota_credito_id) REFERENCES notas_credito(id) ON DELETE CASCADE,
+    INDEX idx_nota (nota_credito_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- =====================================================
 -- TABLAS DE RETENCIONES
 -- =====================================================
 
