@@ -477,13 +477,23 @@ class NotaCredito
                 $baseImponible = round($det['cantidad'] * $det['precio_unitario'] - ($det['descuento'] ?? 0), 2);
             }
 
-            foreach ($impuestosDetalle as $imp) {
+            if (!empty($impuestosDetalle)) {
+                foreach ($impuestosDetalle as $imp) {
+                    $impuestosXml[] = [
+                        'codigo' => $imp['codigo'],
+                        'codigo_porcentaje' => $imp['codigo_porcentaje'],
+                        'tarifa' => $imp['tarifa'],
+                        'base_imponible' => $imp['base_imponible'],
+                        'valor' => $imp['valor']
+                    ];
+                }
+            } else {
                 $impuestosXml[] = [
-                    'codigo' => $imp['codigo'],
-                    'codigo_porcentaje' => $imp['codigo_porcentaje'],
-                    'tarifa' => $imp['tarifa'],
-                    'base_imponible' => $imp['base_imponible'],
-                    'valor' => $imp['valor']
+                    'codigo' => '2',
+                    'codigo_porcentaje' => '0',
+                    'tarifa' => 0,
+                    'base_imponible' => $baseImponible,
+                    'valor' => 0
                 ];
             }
 
