@@ -204,6 +204,15 @@ class XmlGenerator
             }
         }
 
+        if (empty($impuestosMap)) {
+            $impuestosMap['2-0'] = [
+                'codigo' => '2',
+                'codigoPorcentaje' => '0',
+                'baseImponible' => $totales['subtotal_sin_impuestos'] ?? 0,
+                'valor' => 0
+            ];
+        }
+
         foreach ($impuestosMap as $imp) {
             $tImp = $this->dom->createElement('totalImpuesto');
             $this->addElement($tImp, 'codigo', $imp['codigo']);
@@ -213,9 +222,7 @@ class XmlGenerator
             $totalConImpuestos->appendChild($tImp);
         }
 
-        if ($totalConImpuestos->hasChildNodes()) {
-            $info->appendChild($totalConImpuestos);
-        }
+        $info->appendChild($totalConImpuestos);
 
         $this->addElement($info, 'motivo', $this->limpiarTexto($notaCredito['motivo'] ?? 'Devolución'));
 
