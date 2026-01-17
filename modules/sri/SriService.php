@@ -253,13 +253,31 @@ class SriService
 
         if (in_array($estado, [self::ESTADO_RECHAZADO, self::ESTADO_NO_AUTORIZADO], true)) {
             $errores = isset($auth->mensajes->mensaje) ? $this->extraerErrores($auth) : [];
-            $resultado['mensaje'] = !empty($errores) ? implode('. ', $errores) : 'Rechazado/No autorizado.';
+            $mensaje = !empty($errores) ? implode('. ', $errores) : 'Rechazado/No autorizado.';
+            if ($this->esClaveEnProcesamiento($errores)) {
+                $resultado['estado'] = self::ESTADO_EN_PROCESAMIENTO;
+                $resultado['mensaje'] = $mensaje;
+                return $resultado;
+            }
+            $resultado['mensaje'] = $mensaje;
             return $resultado;
         }
 
         // EN PROCESO u otros
         $resultado['mensaje'] = $estado;
         return $resultado;
+    }
+
+    private function esClaveEnProcesamiento(array $errores): bool
+    {
+        foreach ($errores as $error) {
+            $texto = strtoupper((string) $error);
+            if (str_contains($texto, 'CLAVE DE ACCESO EN PROCESAMIENTO') || str_contains($texto, '[70]')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function extraerErrores($obj): array

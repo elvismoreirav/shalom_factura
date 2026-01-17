@@ -333,6 +333,7 @@ class Factura
                 $estadoSri = $resultado['estado'] ?? 'DESCONOCIDO';
                 $nuevoEstadoSri = match(strtoupper($estadoSri)) {
                     'RECHAZADO', 'NO AUTORIZADO', 'DEVUELTA', 'ERROR_ESTRUCTURA' => 'rechazada',
+                    'EN PROCESAMIENTO' => 'pendiente',
                     'ERROR', 'ERROR_CONEXION', 'ERROR_INTERNO' => 'pendiente',
                     default => 'enviado'
                 };
