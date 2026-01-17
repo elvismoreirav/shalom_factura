@@ -347,6 +347,21 @@ class SriClient
         }
 
         $resultado['mensaje'] = !empty($errores) ? implode('. ', $errores) : $resultado['estado'];
+        if ($this->esClaveEnProcesamiento($errores)) {
+            $resultado['estado'] = 'EN PROCESO';
+        }
         return $resultado;
+    }
+
+    private function esClaveEnProcesamiento(array $errores): bool
+    {
+        foreach ($errores as $error) {
+            $texto = strtoupper((string) $error);
+            if (str_contains($texto, 'CLAVE DE ACCESO EN PROCESAMIENTO') || str_contains($texto, '[70]')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

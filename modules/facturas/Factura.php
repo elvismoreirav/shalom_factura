@@ -343,6 +343,9 @@ class Factura
                 if (empty(trim($mensaje))) {
                     $mensaje = $this->obtenerMensajeEstadoSri($nuevoEstadoSri);
                 }
+                if ($this->esClaveEnProcesamiento($mensaje)) {
+                    $nuevoEstadoSri = 'pendiente';
+                }
                 
                 $this->db->update('facturas', ['estado_sri' => $nuevoEstadoSri, 'mensaje_sri' => $mensaje], 'id = :id', [':id' => $id]);
                 
@@ -458,6 +461,11 @@ class Factura
         $path = $baseDir . '/' . $filename;
         file_put_contents($path, $xml);
         return $path;
+    }
+
+    private function esClaveEnProcesamiento(string $mensaje): bool {
+        $texto = strtoupper(trim($mensaje));
+        return $texto !== '' && (str_contains($texto, 'CLAVE DE ACCESO EN PROCESAMIENTO') || str_contains($texto, '[70]'));
     }
 
     private function getEmpresaData(): array { $empresa = $this->db->query("SELECT * FROM empresas WHERE id = :id")->fetch([':id' => $this->auth->empresaId()]); if (!$empresa) throw new \Exception('Empresa no encontrada'); return $empresa; }
