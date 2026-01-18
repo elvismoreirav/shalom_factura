@@ -217,7 +217,7 @@ async function emitirNota() {
     ShalomApp.showLoading();
 
     try {
-        const response = await ShalomApp.post('<?= url('api/notas-credito/emitir.php') ?>', { id: <?= $nota['id'] ?> });
+        const response = await ShalomApp.post('<?= url('api/notas-credito/autorizar.php') ?>', { id: <?= $nota['id'] ?> });
         if (response.success) {
             ShalomApp.toast('Nota de crédito emitida correctamente', 'success');
             setTimeout(() => location.reload(), 1500);
