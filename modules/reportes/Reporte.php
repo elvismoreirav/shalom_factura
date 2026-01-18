@@ -369,6 +369,174 @@ class Reporte
     }
     
     /**
+     * Análisis de clientes
+     */
+    public function getAnalisisClientes(string $fechaDesde, string $fechaHasta): array
+    {
+        $empresaId = $this->auth->empresaId();
+
+        // Ranking de clientes por facturación
+        $ranking = $this->db->query("
+            SELECT
+                c.id,
+                c.razon_social,
+                c.identificacion,
+                c.email,
+                c.telefono,
+                ti.nombre as tipo_identificacion,
+                COUNT(f.id) as total_facturas,
+                COALESCE(SUM(f.total), 0) as total_facturado,
+                COALESCE(AVG(f.total), 0) as ticket_promedio,
+                MIN(f.fecha_emision) as primera_compra,
+                MAX(f.fecha_emision) as ultima_compra,
+                DATEDIFF(:hoy, MAX(f.fecha_emision)) as dias_sin_comprar
+            FROM clientes c
+            LEFT JOIN cat_tipos_identificacion ti ON c.tipo_identificacion_id = ti.id
+            LEFT JOIN facturas f ON c.id = f.cliente_id
+                AND f.estado = 'emitida'
+                AND f.fecha_emision BETWEEN :fecha_desde AND :fecha_hasta
+                AND f.deleted_at IS NULL
+            WHERE c.empresa_id = :empresa_id
+            AND c.deleted_at IS NULL
+            GROUP BY c.id
+            HAVING total_facturas > 0
+            ORDER BY total_facturado DESC
+        ")->fetchAll([
+            ':empresa_id' => $empresaId,
+            ':fecha_desde' => $fechaDesde,
+            ':fecha_hasta' => $fechaHasta,
+            ':hoy' => date('Y-m-d')
+        ]);
+
+        // Clientes nuevos en el período
+        $clientesNuevos = $this->db->query("
+            SELECT
+                c.id,
+                c.razon_social,
+                c.identificacion,
+                c.created_at,
+                COUNT(f.id) as facturas,
+                COALESCE(SUM(f.total), 0) as total
+            FROM clientes c
+            LEFT JOIN facturas f ON c.id = f.cliente_id
+                AND f.estado = 'emitida'
+                AND f.deleted_at IS NULL
+            WHERE c.empresa_id = :empresa_id
+            AND c.created_at BETWEEN :fecha_desde AND :fecha_hasta
+            AND c.deleted_at IS NULL
+            GROUP BY c.id
+            ORDER BY c.created_at DESC
+        ")->fetchAll([
+            ':empresa_id' => $empresaId,
+            ':fecha_desde' => $fechaDesde,
+            ':fecha_hasta' => $fechaHasta
+        ]);
+
+        // Frecuencia de compra (clientes recurrentes vs únicos)
+        $frecuencia = $this->db->query("
+            SELECT
+                CASE
+                    WHEN COUNT(f.id) = 1 THEN 'unica'
+                    WHEN COUNT(f.id) BETWEEN 2 AND 3 THEN 'ocasional'
+                    WHEN COUNT(f.id) BETWEEN 4 AND 6 THEN 'frecuente'
+                    ELSE 'muy_frecuente'
+                END as categoria,
+                COUNT(DISTINCT c.id) as clientes,
+                COALESCE(SUM(f.total), 0) as total_facturado
+            FROM clientes c
+            JOIN facturas f ON c.id = f.cliente_id
+                AND f.estado = 'emitida'
+                AND f.fecha_emision BETWEEN :fecha_desde AND :fecha_hasta
+                AND f.deleted_at IS NULL
+            WHERE c.empresa_id = :empresa_id
+            AND c.deleted_at IS NULL
+            GROUP BY c.id
+        ")->fetchAll([
+            ':empresa_id' => $empresaId,
+            ':fecha_desde' => $fechaDesde,
+            ':fecha_hasta' => $fechaHasta
+        ]);
+
+        // Agrupar frecuencia
+        $frecuenciaAgrupada = [
+            'unica' => ['clientes' => 0, 'total' => 0],
+            'ocasional' => ['clientes' => 0, 'total' => 0],
+            'frecuente' => ['clientes' => 0, 'total' => 0],
+            'muy_frecuente' => ['clientes' => 0, 'total' => 0]
+        ];
+        foreach ($frecuencia as $f) {
+            $cat = $f['categoria'];
+            $frecuenciaAgrupada[$cat]['clientes']++;
+            $frecuenciaAgrupada[$cat]['total'] += $f['total_facturado'];
+        }
+
+        // Clientes por tipo de identificación
+        $porTipoIdentificacion = $this->db->query("
+            SELECT
+                ti.nombre as tipo,
+                COUNT(DISTINCT c.id) as cantidad,
+                COALESCE(SUM(f.total), 0) as total_facturado
+            FROM clientes c
+            LEFT JOIN cat_tipos_identificacion ti ON c.tipo_identificacion_id = ti.id
+            JOIN facturas f ON c.id = f.cliente_id
+                AND f.estado = 'emitida'
+                AND f.fecha_emision BETWEEN :fecha_desde AND :fecha_hasta
+                AND f.deleted_at IS NULL
+            WHERE c.empresa_id = :empresa_id
+            AND c.deleted_at IS NULL
+            GROUP BY ti.id
+            ORDER BY total_facturado DESC
+        ")->fetchAll([
+            ':empresa_id' => $empresaId,
+            ':fecha_desde' => $fechaDesde,
+            ':fecha_hasta' => $fechaHasta
+        ]);
+
+        // Evolución mensual de clientes activos
+        $evolucionMensual = $this->db->query("
+            SELECT
+                DATE_FORMAT(f.fecha_emision, '%Y-%m') as mes,
+                COUNT(DISTINCT f.cliente_id) as clientes_activos,
+                COALESCE(SUM(f.total), 0) as total_facturado
+            FROM facturas f
+            WHERE f.empresa_id = :empresa_id
+            AND f.estado = 'emitida'
+            AND f.fecha_emision BETWEEN :fecha_desde AND :fecha_hasta
+            AND f.deleted_at IS NULL
+            GROUP BY mes
+            ORDER BY mes
+        ")->fetchAll([
+            ':empresa_id' => $empresaId,
+            ':fecha_desde' => $fechaDesde,
+            ':fecha_hasta' => $fechaHasta
+        ]);
+
+        // Resumen
+        $totalClientes = count($ranking);
+        $totalFacturado = array_sum(array_column($ranking, 'total_facturado'));
+        $ticketPromedio = $totalClientes > 0 ? $totalFacturado / array_sum(array_column($ranking, 'total_facturas')) : 0;
+        $clientesNuevosCount = count($clientesNuevos);
+
+        return [
+            'ranking' => $ranking,
+            'clientes_nuevos' => $clientesNuevos,
+            'frecuencia' => $frecuenciaAgrupada,
+            'por_tipo_identificacion' => $porTipoIdentificacion,
+            'evolucion_mensual' => $evolucionMensual,
+            'resumen' => [
+                'total_clientes' => $totalClientes,
+                'clientes_nuevos' => $clientesNuevosCount,
+                'total_facturado' => $totalFacturado,
+                'ticket_promedio' => $ticketPromedio
+            ],
+            'periodo' => [
+                'desde' => $fechaDesde,
+                'hasta' => $fechaHasta
+            ]
+        ];
+    }
+
+    /**
      * Dashboard ejecutivo
      */
     public function getDashboardEjecutivo(): array
