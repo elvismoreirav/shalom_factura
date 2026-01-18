@@ -8,7 +8,7 @@ namespace Shalom\Modules\NotasCredito;
 use Shalom\Core\Database;
 use Shalom\Core\Auth;
 use Shalom\Modules\Sri\ClaveAcceso;
-use Shalom\Modules\Sri\XmlGenerator;
+use Shalom\Modules\Sri\XmlGeneratorNotaCredito;
 use Shalom\Modules\Sri\FirmaElectronica;
 use Shalom\Modules\Sri\SriService;
 
@@ -312,7 +312,7 @@ class NotaCredito
                 $nota['clave_acceso'] = $claveAcceso;
             }
 
-            $xmlGenerator = new XmlGenerator($empresa, $establecimiento, $puntoEmision);
+            $xmlGenerator = new XmlGeneratorNotaCredito($empresa, $establecimiento, $puntoEmision);
             $notaXml = $this->prepararDatosXml($nota);
             $xml = $xmlGenerator->generarNotaCredito($notaXml);
             $xmlPath = $this->guardarXml($id, $xml, 'generado');

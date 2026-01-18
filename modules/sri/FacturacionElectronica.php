@@ -14,7 +14,7 @@ class FacturacionElectronica
 {
     private Database $db;
     private Auth $auth;
-    private XmlGenerator $xmlGenerator;
+    private XmlGeneratorFactura $xmlGenerator;
     private ?FirmaElectronica $firma = null;
     private SriClient $sriClient;
     
@@ -29,7 +29,7 @@ class FacturacionElectronica
         
         $this->cargarConfiguracion($establecimientoId, $puntoEmisionId);
         
-        $this->xmlGenerator = new XmlGenerator($this->empresa, $this->establecimiento, $this->puntoEmision);
+        $this->xmlGenerator = new XmlGeneratorFactura($this->empresa, $this->establecimiento, $this->puntoEmision);
         $this->sriClient = new SriClient($this->empresa['ambiente_sri']);
     }
     

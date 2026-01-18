@@ -16,7 +16,7 @@ use Shalom\Core\Database;
 use Shalom\Core\Auth;
 use Shalom\Core\Helpers;
 use Shalom\Modules\Sri\ClaveAcceso;
-use Shalom\Modules\Sri\XmlGenerator;
+use Shalom\Modules\Sri\XmlGeneratorFactura;
 use Shalom\Modules\Sri\FirmaElectronica;
 use Shalom\Modules\Sri\SriService;
 
@@ -296,7 +296,7 @@ class Factura
             }
             
             // 2. Generar XML
-            $xmlGenerator = new XmlGenerator($empresa, $establecimiento, $puntoEmision);
+            $xmlGenerator = new XmlGeneratorFactura($empresa, $establecimiento, $puntoEmision);
             $facturaXml = $this->prepararDatosXml($factura);
             $xml = $xmlGenerator->generarFactura($facturaXml);
             $xmlPath = $this->guardarXml($id, $xml, 'generado');
