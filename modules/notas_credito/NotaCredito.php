@@ -366,6 +366,12 @@ class NotaCredito
             };
 
             $mensaje = $resultado['mensaje'] ?? 'Comprobante en proceso';
+
+            // FIX: Detectar si la clave está en procesamiento (error [70])
+            if ($this->esClaveEnProcesamiento($mensaje)) {
+                $nuevoEstadoSri = 'pendiente';
+            }
+
             $this->db->update('notas_credito', ['estado_sri' => $nuevoEstadoSri, 'mensaje_sri' => $mensaje], 'id = :id', [':id' => $id]);
 
             return ['success' => false, 'message' => $mensaje, 'estado_sri' => $nuevoEstadoSri, 'clave_acceso' => $nota['clave_acceso']];
@@ -723,5 +729,11 @@ class NotaCredito
             mt_rand(0, 0x0fff) | 0x4000, mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    private function esClaveEnProcesamiento(string $mensaje): bool
+    {
+        $texto = strtoupper(trim($mensaje));
+        return $texto !== '' && (str_contains($texto, 'CLAVE DE ACCESO EN PROCESAMIENTO') || str_contains($texto, '[70]'));
     }
 }
